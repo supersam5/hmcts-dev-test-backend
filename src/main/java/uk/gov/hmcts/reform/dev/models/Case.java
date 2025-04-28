@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Getter
 @Setter
-public class ExampleCase {
+public class Case {
 
     private int id;
     private String caseNumber;
