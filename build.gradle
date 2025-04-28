@@ -139,7 +139,7 @@ dependencyCheck {
 repositories {
   mavenLocal()
   mavenCentral()
-  maven { url 'https://jitpack.io' }
+  maven { url = 'https://jitpack.io' }
 }
 
 ext {
@@ -154,10 +154,12 @@ dependencies {
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-json'
+  implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
   implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.8.6'
+  runtimeOnly    group: 'com.mysql', name: 'mysql-connector-j'
 
   implementation group: 'com.github.hmcts.java-logging', name: 'logging', version: '6.1.8'
-
+  implementation 'me.paulschwarz:spring-dotenv:2.2.0'
   implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: log4JVersion
   implementation group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: log4JVersion
   implementation group: 'ch.qos.logback', name: 'logback-classic', version: logbackVersion
@@ -175,7 +177,9 @@ dependencies {
   }
 }
 
-mainClassName = 'uk.gov.hmcts.reform.dev.Application'
+application {
+  mainClass.set('uk.gov.hmcts.reform.dev.Application')
+}
 
 bootJar {
   archiveFileName = "test-backend.jar"

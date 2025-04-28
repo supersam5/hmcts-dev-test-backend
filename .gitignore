@@ -12,6 +12,9 @@ bin/main/application.yaml
 .settings
 .springBeans
 
+### environment ###
+.env
+
 ### IntelliJ IDEA ###
 .idea
 /out

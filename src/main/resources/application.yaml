@@ -28,9 +28,9 @@ spring:
     name: Dev Test
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}}
-    username: ${DB_USER_NAME}
-    password: ${DB_PASSWORD}
+    url: jdbc:mysql://justice-demo.mysql.database.azure.com:3306/justice
+    username: "supersam98"
+    password: "MyPa$$98"
     properties:
       charSet: UTF-8
     hikari:
@@ -40,10 +40,13 @@ spring:
       poolName: justice-HikariCP
       maxLifetime: 7200000
       connectionTimeout: 30000
-#  jpa:
-#    properties:
-#      hibernate:
-#        jdbc:
-#          lob:
-#            # silence the 'wall-of-text' - unnecessary exception throw about blob types
-#            non_contextual_creation: true
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    properties:
+      hibernate:
+        ddl-auto: update
+        jdbc:
+          lob:
+            # silence the 'wall-of-text' - unnecessary exception throw about blob types
+            non_contextual_creation: true
+      show-sql: true
